@@ -1,0 +1,1 @@
+# This file in real project must be in gitignore
