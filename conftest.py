@@ -23,8 +23,8 @@ def pytest_runtest_makereport(item):
 
     # need register new fixture
     fixture_list = [
-        'desktop'
-        'desktop_with_play_video'
+        'desktop',
+        'playing_video'
     ]
 
     outcome = yield
@@ -72,7 +72,7 @@ def desktop(request):
 
 
 @pytest.fixture(scope='function')
-def desktop_with_playing_video(desktop):
+def playing_video(desktop):
     PlayerComponent(desktop.driver).press_big_btn_play_video()
     desktop.wait_for_time(2)
     return desktop
