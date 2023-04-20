@@ -1,7 +1,7 @@
 import pytest
 from modules.Driver import Driver
 from src.pages.base_page import BasePage
-from src.pages.player.player_component import PlayerComponent
+from src.pages.player.player_component import PlayerComponent, locSmallPauseBtn
 
 # fixtures, plugins, list
 pytest_plugins = ()
@@ -74,5 +74,5 @@ def desktop(request):
 @pytest.fixture(scope='function')
 def playing_video(desktop):
     PlayerComponent(desktop.driver).press_big_btn_play_video()
-    desktop.wait_for_time(2)
+    desktop.wait_present_element(locSmallPauseBtn)
     return desktop

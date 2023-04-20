@@ -1,7 +1,7 @@
 import allure
 from pytest import mark
 
-from src.pages.player.player_component import PlayerComponent
+from src.pages.player.player_component import PlayerComponent, locSmallPauseBtn
 
 """
 Run locally: 
@@ -21,7 +21,7 @@ class TestPlayingVideoBook:
             player = PlayerComponent(desktop.driver)
         with allure.step(f"WHEN: user playing video"):
             player.press_big_btn_play_video()
-            desktop.wait_for_time(2)
+            desktop.wait_present_element(locSmallPauseBtn)
             duration_1 = player.get_time_after_start()
             desktop.wait_for_time(WAIT_VIDEO)
             duration_2 = player.get_time_after_start()
@@ -37,7 +37,7 @@ class TestPlayingVideoBook:
             player = PlayerComponent(desktop.driver)
         with allure.step(f"WHEN: change pages"):
             player.press_big_btn_play_video()
-            desktop.wait_for_time(2)
+            desktop.wait_present_element(locSmallPauseBtn)
             player.press_next_page_btn()
             player.press_next_page_btn()
             page_num = player.get_page_number()
@@ -53,7 +53,7 @@ class TestPlayingVideoBook:
             player = PlayerComponent(desktop.driver)
         with allure.step(f"WHEN: change pages"):
             player.press_big_btn_play_video()
-            desktop.wait_for_time(2)
+            desktop.wait_present_element(locSmallPauseBtn)
             player.press_next_page_btn()
             player.press_next_page_btn()
             page_num = player.get_page_number()
