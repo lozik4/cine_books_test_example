@@ -8,6 +8,9 @@ locPlayer: str = "//div[contains(@class, 'play-block-center')]"
 locTimeAfterStart: str = "//div[@class = 'time current-duration']//time"
 locCurrentPageNumber: str = "//div[@class = 'control frame-number'][1]"
 locAllPagesInBook: str = "//div[@class = 'control frame-number'][2]"
+locFrameCounter: str = "//div[@class='control frame-counter']"
+locTextOnFrame: str = "//div[@class='cnb-text-player__text']//span"
+locImageBackground: str = "//div[contains(@class,'image-frame no-background')]/img"
 
 
 class PlayerComponent:
@@ -60,3 +63,29 @@ class PlayerComponent:
     def get_all_pages_number(self) -> int:
         self.page.move_to_element(locTimeAfterStart)
         return int(self.page.get_text(locAllPagesInBook))
+
+    @step('Get number page and all page in text pook')
+    def get_current_page_num_and_all_pages(self) -> (int, int):
+        self.page.wait_present_element(locFrameCounter)
+        frame_info = self.page.get_text(locFrameCounter)
+        return list(map(int, frame_info.replace(' ', '').split('/')))
+
+    @step('Get text from frame in text book')
+    def get_text_from_frame(self) -> str:
+        self.page.wait_app_loadings()
+        return self.page.get_text(locTextOnFrame)
+
+    @step('Press block next frame')
+    def pres_block_next_frame(self):
+        self.page.wait_app_loadings()
+        self.page.click_element("//div[@class='canvas-container__prev-frame']")
+
+    @step('Press block previous frame')
+    def press_btn_previous_frame(self):
+        self.page.wait_app_loadings()
+        self.page.click_element("//div[@class='canvas-container__next-frame']")
+
+    @step('Get image src on text book frame')
+    def get_image_src(self) -> str:
+        self.page.wait_app_loadings()
+        return self.page.get_element_attribute(locImageBackground, 'src')

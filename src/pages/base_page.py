@@ -41,9 +41,9 @@ class BasePage(BrowserPage):
     def get_lang(self):
         return self.lang
 
-    SPIN = '//div[contains(@class,"InnerCircle")]'
+    LOADING_IMG = '//div[@class="image-frame"]'
 
-    LOADINGS = f'{SPIN}'
+    LOADINGS = f'{LOADING_IMG}'
 
     #################################################################
     # WAITS #

@@ -74,4 +74,5 @@ def desktop(request):
 @pytest.fixture(scope='function')
 def desktop_with_playing_video(desktop):
     PlayerComponent(desktop.driver).press_big_btn_play_video()
+    desktop.wait_for_time(2)
     return desktop
