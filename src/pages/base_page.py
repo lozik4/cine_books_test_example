@@ -430,7 +430,7 @@ class BasePage(BrowserPage):
                 sleep(0.05)
                 continue
 
-    @step("Element does no exist")
+    @step("Element does not exist")
     def element_not_exist(self, locator: str, timeout: int = 5):
         start_ms = time() * 1000.0
         stop_ms = start_ms + (timeout * 1000)

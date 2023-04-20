@@ -1,6 +1,7 @@
 import pytest
 from modules.Driver import Driver
 from src.pages.base_page import BasePage
+from src.pages.player.player_component import PlayerComponent
 
 # fixtures, plugins, list
 pytest_plugins = ()
@@ -23,6 +24,7 @@ def pytest_runtest_makereport(item):
     # need register new fixture
     fixture_list = [
         'desktop'
+        'desktop_with_play_video'
     ]
 
     outcome = yield
@@ -54,15 +56,22 @@ def desktop(request):
     headless = eval(request.config.getoption("--headless"))
     browser_name = request.config.getoption("--browser_name")
     browser_version = request.config.getoption("--browser_version")
-    hub = request.config.getoption("--hub")
+    hub = eval(request.config.getoption("--hub"))
     app_lang = request.config.getoption("--lang")
     driver = Driver().get_driver(
         browser_name=browser_name, headless=headless, version=browser_version, hub=hub, lang=app_lang
     )
     # 2 - setup browser
     browser = BasePage(driver)
-    browser.goto('/')
+    browser.goto('')
+    browser.click_element("//button[@id='gdpr-cookie-accept']")
     # 3 - make browser available
     yield browser
     # 4 - teardown browser
     browser.quit()
+
+
+@pytest.fixture(scope='function')
+def desktop_with_playing_video(desktop):
+    PlayerComponent(desktop.driver).press_big_btn_play_video()
+    return desktop

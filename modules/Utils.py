@@ -1,4 +1,6 @@
+import datetime
 import os
+import time
 from io import BytesIO
 
 from PIL import Image
@@ -54,3 +56,8 @@ class ScrolledScreenshot:
         stitched_image.save(buf, format='PNG')
         byte_im = buf.getvalue()
         return byte_im
+
+
+def convert_str_to_seconds(value: str) -> float:
+    x = time.strptime(value.split(',')[0], '%H:%M:%S')
+    return datetime.timedelta(hours=x.tm_hour, minutes=x.tm_min, seconds=x.tm_sec).total_seconds()
