@@ -1,0 +1,139 @@
+# To execute this docker-compose yml file use `docker-compose -f docker-compose-v3.yml up`
+# Add the `-d` flag at the end for detached execution
+# To stop the execution, hit Ctrl+C, and then `docker-compose -f docker-compose-v3.yml down`
+version: "3"
+services:
+  chrome:
+    image: selenium/node-chrome:4.5.0-20221004
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+
+  chrome108:
+    image: selenium/node-chrome:108.0
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+  chromelatest:
+    image: selenium/node-chrome:latest
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+  chrome104:
+    image: selenium/node-chrome:104.0
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+
+  edge:
+    image: selenium/node-edge:4.5.3-20221024
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+  edgelatest:
+    image: selenium/node-edge:latest
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+  firefox:
+    image: selenium/node-firefox:4.5.3-20221024
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+  firefoxlatest:
+    image: selenium/node-firefox:latest
+    shm_size: 2gb
+    restart: always
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=4
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1
+
+
+  selenium-hub:
+    image: selenium/hub:4.5.0-20221004
+    container_name: selenium-hub
+    restart: always
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    environment:
+      - TZ=Europe/Kiev
+      - VNC_NO_PASSWORD=1

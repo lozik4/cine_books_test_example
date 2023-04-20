@@ -11,6 +11,9 @@ locAllPagesInBook: str = "//div[@class = 'control frame-number'][2]"
 locFrameCounter: str = "//div[@class='control frame-counter']"
 locTextOnFrame: str = "//div[@class='cnb-text-player__text']//span"
 locImageBackground: str = "//div[contains(@class,'image-frame no-background')]/img"
+locSmallPlayBtn: str = "//div[@class='play-block']//button[contains(@class, 'cn-webviewer-icon-play')]"
+locSmallPauseBtn: str = "//div[@class='play-block']//button[contains(@class, 'cn-webviewer-icon-pause')]"
+locAudioBookIcon: str = "//button[contains(@class, 'webviewer-icon-listen-mode-pressed')]"
 
 
 class PlayerComponent:
@@ -89,3 +92,8 @@ class PlayerComponent:
     def get_image_src(self) -> str:
         self.page.wait_app_loadings()
         return self.page.get_element_attribute(locImageBackground, 'src')
+
+    @step('Press small play button')
+    def press_small_play_button(self):
+        self.page.move_to_element(locSmallPlayBtn)
+        self.el.button.press_btn('webviewer-icon-listen-mode')
