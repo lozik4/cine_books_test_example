@@ -1,5 +1,8 @@
 # CINE_BOOKS_test_example
 Only UI framework with Python+PyTest+Selenium+Allure
+### Video demonstration 
+https://drive.google.com/file/d/1VC6DaPyGEJNMcRNgVJkHDFQoNFl2gsnN/view?usp=share_link
+
 
 ### Link to main library's
 * [Python 3.9+](https://www.python.org/)
