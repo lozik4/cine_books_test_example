@@ -83,3 +83,8 @@ If you need history data you mast copy **history** folder from previous run to c
 | `conftest.py`      | pytest configuration (options, fixtures ...) |       |
 | `pytest.ini`       | parameters pytest                            |       |
 | `requirements.txt` | libraries are necessary for the project      |       |
+
+## Report Example
+
+![allure_1](https://github.com/lozik4/cine_books_test_example/blob/main/example/allure_1.png) <br>
+![allure_2](https://github.com/lozik4/cine_books_test_example/blob/main/example/allure_2.png) <br>
