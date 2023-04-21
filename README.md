@@ -1,7 +1,7 @@
 # CINE_BOOKS_test_example
 Only UI framework with Python+PyTest+Selenium+Allure
 ### Video demonstration
-[![Video Demonstration](https://github.com/lozik4/cine_books_test_example/blob/main/example/allure_1.png)](https://drive.google.com/file/d/1VC6DaPyGEJNMcRNgVJkHDFQoNFl2gsnN/view?usp=share_link)
+[![Video Demonstration](https://github.com/lozik4/cine_books_test_example/blob/main/example/Demo.png)](https://drive.google.com/file/d/1VC6DaPyGEJNMcRNgVJkHDFQoNFl2gsnN/view?usp=share_link)
 
 
 
