@@ -88,3 +88,8 @@ If you need history data you mast copy **history** folder from previous run to c
 
 ![allure_1](https://github.com/lozik4/cine_books_test_example/blob/main/example/allure_1.png) <br>
 ![allure_2](https://github.com/lozik4/cine_books_test_example/blob/main/example/allure_2.png) <br>
+![allure_3](https://github.com/lozik4/cine_books_test_example/blob/main/example/allure_3.png) <br>
+![allure_4](https://github.com/lozik4/cine_books_test_example/blob/main/example/allure_4.png) <br>
+![console_report](https://github.com/lozik4/cine_books_test_example/blob/main/example/console_1.png) <br>
+
+
