@@ -76,3 +76,9 @@ def playing_video(desktop):
     PlayerComponent(desktop.driver).press_big_btn_play_video()
     desktop.wait_present_element(locSmallPauseBtn)
     return desktop
+
+
+@pytest.fixture(scope='class')
+def fake():
+    from modules.Faker import Fake
+    yield Fake
